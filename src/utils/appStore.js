@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import sideNavSlice from "./sideNavSlice";
 
-const store = configureStore({
+const appStore = configureStore({
   reducer: {
     nav: sideNavSlice,
   },
 });
-export default store;
+export default appStore;

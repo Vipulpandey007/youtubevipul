@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const sidenavSlice = createSlice({
+const sideNavSlice = createSlice({
   name: "nav",
   initialState: {
     isMenuOpen: true,
@@ -11,5 +11,5 @@ const sidenavSlice = createSlice({
     },
   },
 });
-export const { toggleMenu } = sidenavSlice.actions;
-export default sidenavSlice.reducer;
+export const { toggleMenu } = sideNavSlice.actions;
+export default sideNavSlice.reducer;

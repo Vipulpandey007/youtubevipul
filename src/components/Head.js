@@ -1,17 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaCircleUser } from "react-icons/fa6";
-import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/sideNavSlice";
 
 const Head = () => {
   const dispatch = useDispatch();
-  const toggleMenu = () => {
+  const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   };
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">
       <div className="flex col-span-1 cursor-pointer">
-        <GiHamburgerMenu className="text-3xl" onClick={() => toggleMenu()} />
+        <GiHamburgerMenu
+          className="text-3xl"
+          onClick={() => toggleMenuHandler()}
+        />
         <img
           className="w-20 ml-4"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/2560px-Logo_of_YouTube_%282015-2017%29.svg.png"
