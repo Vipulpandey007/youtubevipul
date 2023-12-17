@@ -14,3 +14,6 @@ export const YOUTUBERECOMMEND_VIDEOAPI =
 export const YOUTUBE_COMMENT =
   "https://youtube.googleapis.com/youtube/v3/comments?part=snippet&parentId=UgzDE2tasfmrYLyNkGt4AaABAg&key=" +
   GOOGLE_API_KEY;
+
+export const YOUTUBE_SEARCH =
+  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";

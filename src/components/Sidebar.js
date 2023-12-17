@@ -19,7 +19,7 @@ const Sidebar = () => {
   //Early return pattern
   if (!isMenuOpen) return null;
   return (
-    <div className="p-5 shadow-lg w-48 ">
+    <div className="p-5 w-48">
       <ul>
         <Link to="/">
           <li className="flex p-2 hover:bg-gray-100 cursor-pointer rounded-lg">
