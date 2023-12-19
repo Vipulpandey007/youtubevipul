@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/youtubevipul/static/css/main.373fdc46.css",
-    "main.js": "/youtubevipul/static/js/main.0af357ef.js",
+    "main.js": "/youtubevipul/static/js/main.613e0086.js",
     "static/js/787.53711055.chunk.js": "/youtubevipul/static/js/787.53711055.chunk.js",
     "static/media/vipultube.png": "/youtubevipul/static/media/vipultube.532d12b6036908eea3db.png",
     "static/media/like.svg": "/youtubevipul/static/media/like.df7eb0d6de72a597243fd57fe3daa03f.svg",
@@ -11,11 +11,11 @@
     "static/media/share.svg": "/youtubevipul/static/media/share.fbc3c580dc76e58d1b78c340212458d1.svg",
     "static/media/download.svg": "/youtubevipul/static/media/download.3bc11833209a64fcf0de61831a1f63d9.svg",
     "main.373fdc46.css.map": "/youtubevipul/static/css/main.373fdc46.css.map",
-    "main.0af357ef.js.map": "/youtubevipul/static/js/main.0af357ef.js.map",
+    "main.613e0086.js.map": "/youtubevipul/static/js/main.613e0086.js.map",
     "787.53711055.chunk.js.map": "/youtubevipul/static/js/787.53711055.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.373fdc46.css",
-    "static/js/main.0af357ef.js"
+    "static/js/main.613e0086.js"
   ]
 }
