@@ -11,10 +11,6 @@ export const YOUTUBERECOMMEND_VIDEOAPI =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=18&regionCode=IN&key=" +
   GOOGLE_API_KEY;
 
-export const YOUTUBE_COMMENT =
-  "https://youtube.googleapis.com/youtube/v3/comments?part=snippet&parentId=UgzDE2tasfmrYLyNkGt4AaABAg&key=" +
-  GOOGLE_API_KEY;
-
 export const YOUTUBE_SEARCH =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
@@ -23,4 +19,4 @@ export const YOUTUBE_SEARCH_VIDEO_WITH_QUERY_API =
   GOOGLE_API_KEY +
   "&q=";
 
-export const OFFSET = 10;
+export const OFFSET = 15;
