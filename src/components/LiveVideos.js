@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeMenu } from "../utils/sideNavSlice";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   YOUTUBE_VIDEO_WATCH_API,
   YOUTUBERECOMMEND_VIDEOAPI,
@@ -12,29 +12,27 @@ import shareIcon from "../images/share.svg";
 import downloadIcon from "../images/download.svg";
 import moreIcon from "../images/more.svg";
 import CommentContainer from "./CommentContainer";
-
-const Watch = () => {
-  const [searchParams] = useSearchParams();
+import LiveChat from "./LiveChat";
+const LiveVideos = () => {
   const [Wvideo, setWVideo] = useState([]);
   const [relatedvideo, setrelatedvideo] = useState([]);
   const isMenuOpen = useSelector((store) => store.nav.isMenuOpen);
 
-  let videoId = searchParams.get("v");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeMenu());
   }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  useEffect(() => {
     getVideoDetails();
     getRelatedVideo();
-  }, [videoId]);
+  }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const getVideoDetails = async () => {
-    const data = await fetch(YOUTUBE_VIDEO_WATCH_API + videoId);
+    const data = await fetch(YOUTUBE_VIDEO_WATCH_API + "TUv23LmYnTs");
     const json = await data.json();
     setWVideo(json.items[0]);
   };
@@ -52,11 +50,11 @@ const Watch = () => {
       } col-span-10 pt-6 flex w-full mt-[40px] `}
     >
       <div className="flex-grow-6">
-        <div className="px-10 py-10">
+        <div className="pl-10 py-4">
           <iframe
             width="1050"
             height="500"
-            src={"https://www.youtube.com/embed/" + searchParams.get("v")}
+            src={"https://www.youtube.com/embed/TUv23LmYnTs"}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -84,7 +82,7 @@ const Watch = () => {
                       </div>
                     </div>
                   </div>
-                  <button className="bg-black rounded-full px-4 ml-2 text-white hover:bg-white hover:text-black hover:border border-black">
+                  <button className="bg-black rounded-full px-4 ml-2 text-white  hover:bg-white hover:text-black hover:border border-black">
                     Subscribe
                   </button>
                 </div>
@@ -135,7 +133,8 @@ const Watch = () => {
         </div>
       </div>
 
-      <div className="flex-grow-3">
+      <div>
+        <LiveChat />
         {relatedvideo?.map((video) => (
           <Link
             key={video?.id}
@@ -167,4 +166,4 @@ const Watch = () => {
   );
 };
 
-export default Watch;
+export default LiveVideos;

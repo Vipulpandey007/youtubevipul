@@ -7,11 +7,26 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainContainer from "./components/MainContainer";
 import Watch from "./components/Watch";
 import Footer from "./components/Footer";
+import LiveVideos from "./components/LiveVideos";
+import SearchResult from "./components/SearchResult";
 
-const appRouter = createBrowserRouter([
+function App() {
+  return (
+    <Provider store={appStore}>
+      <div>
+        <Head />
+        <Body />
+
+        <Footer />
+      </div>
+    </Provider>
+  );
+}
+
+export const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Body />,
+    element: <App />,
     children: [
       {
         path: "/",
@@ -21,20 +36,16 @@ const appRouter = createBrowserRouter([
         path: "watch",
         element: <Watch />,
       },
+      {
+        path: "live",
+        element: <LiveVideos />,
+      },
+      {
+        path: "results",
+        element: <SearchResult />,
+      },
     ],
   },
 ]);
-
-function App() {
-  return (
-    <Provider store={appStore}>
-      <div>
-        <Head />
-        <RouterProvider router={appRouter} />
-        <Footer />
-      </div>
-    </Provider>
-  );
-}
 
 export default App;
