@@ -47,81 +47,93 @@ const Head = () => {
     dispatch(toggleMenu());
   };
 
-  return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-white">
-      <div className="flex flex-row justify-between items-center px-4 py-3">
-        <div className="flex flex-row items-center">
-          <div className="w-10 h-10 hover:rounded-full hover:bg-gray-100 cursor-pointer">
-            <GiHamburgerMenu
-              className="h-6 mt-2 ml-2 text-2xl"
-              onClick={() => toggleMenuHandler()}
-            />
-          </div>
-          <a href="/">
-            <img
-              className="w-36 ml-4 cursor-pointer"
-              src={tubeicon}
-              alt="youtubelogo"
-            />
-          </a>
-        </div>
+  const searchQueryHandler = (event) => {
+    if (
+      (event?.key === "Enter" || event === "searchButton") &&
+      searchQuery?.length > 0
+    ) {
+      console.log("clicked");
+      navigate("/results?search_query=" + searchQuery);
+    }
+  };
 
-        <div className="relative">
-          <div className="flex flex-row relative">
-            <input
-              type="text"
-              className="border rounded-l-full w-[572px] h-10 pl-5 outline-none"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onFocus={() => {
-                setShowSuggestion(true);
-              }}
-              onBlur={() => {
-                setShowSuggestion(false);
-              }}
-            />
-            <button className="border rounded-r-full w-16 h-10 bg-gray-100">
-              <img
-                alt="search-icon"
-                className="h-5 mx-auto"
-                src="https://cdn-icons-png.flaticon.com/512/482/482631.png"
-              />
-            </button>
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery("")}
-                className="absolute hover:bg-gray-200 hover:rounded-full w-9 h-9 right-[5.0rem] top-[2px]"
-              >
-                X
-              </button>
-            )}
-          </div>
-          {showSuggestion && suggestion?.length > 0 && (
-            <div className="absolute bg-white w-[560px] max-h-[400px] shadow-lg border rounded-lg overflow-y-auto left-3 top-10 z-50 text-left">
-              <ul className="py-3">
-                {suggestion.map((suggestions) => (
-                  <li
-                    key={suggestions}
-                    onMouseDown={(e) => handleSuggestion(e)}
-                    className="hover:bg-gray-100 rounded-lg cursor-pointer p-2"
-                  >
-                    <img
-                      className="mr-5 h-4 ml-3 inline-block"
-                      alt="search-icon"
-                      src="https://cdn-icons-png.flaticon.com/512/482/482631.png"
-                    />
-                    <span>{suggestions}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+  return (
+    <div className="sticky top-0 z-10 flex flex-row items-center justify-between h-14 px-4 md:px-5 bg-white">
+      <div className="flex h-5 items-center">
+        <div className="flex cursor-pointer items-center justify-center h-10 w-10 rounded-full hover:bg-[#303030]/[0.6] md:hidden">
+          <GiHamburgerMenu
+            className="h-6 mt-2 ml-2 text-2xl"
+            onClick={() => toggleMenuHandler()}
+          />
         </div>
-        <div className="flex flex-row-reverse justify-around">
-          <div className="w-10 h-10 ml-5 cursor-pointer">
-            <FaCircleUser className="text-3xl" />
-          </div>
+        <a href="/" className="flex h-5 items-center">
+          <img
+            className="w-20 sm:w-24 md:ml-2 cursor-pointer"
+            src={tubeicon}
+            alt="youtubelogo"
+          />
+        </a>
+      </div>
+
+      <div className="group flex items-center">
+        <div className="flex h-8 md:h-10 md:ml-10 md:pl-5 border border-[#303030] rounded-l-3xl md:group-focus-within:ml-5 md:group-focus-within:pl-5">
+          <input
+            type="text"
+            className="bg-transparent outline-none text-black pr-5 pl-5 md:pl-0 w-44 md:group-focus-within:pl-0 md:w-64 lg:w-[500px]"
+            placeholder="Search..."
+            value={searchQuery}
+            onKeyUp={searchQueryHandler}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => {
+              setShowSuggestion(true);
+            }}
+            onBlur={() => {
+              setShowSuggestion(false);
+            }}
+          />
+        </div>
+        <button className="w-[40px] md:w-[60px] h-8 md:h-10 flex items-center justify-center border border-l-0 border-[#303030] rounded-r-3xl bg-gray-100">
+          <img
+            alt="search-icon"
+            className="h-5 mx-auto"
+            onClick={() => searchQueryHandler("searchButton")}
+            src="https://cdn-icons-png.flaticon.com/512/482/482631.png"
+          />
+        </button>
+        {searchQuery && (
+          <button
+            onClick={() => setSearchQuery("")}
+            className="absolute hover:bg-gray-200 hover:rounded-full w-9 h-9 right-[5.0rem] top-[2px]"
+          >
+            X
+          </button>
+        )}
+      </div>
+      {showSuggestion && suggestion?.length > 0 && (
+        <div className="absolute bg-white w-[560px] max-h-[400px] shadow-lg border rounded-lg overflow-y-auto left-3 top-10 z-50 text-left">
+          <ul className="py-3">
+            {suggestion.map((suggestions) => (
+              <li
+                key={suggestions}
+                onMouseDown={(e) => handleSuggestion(e)}
+                className="hover:bg-gray-100 rounded-lg cursor-pointer p-2"
+              >
+                <img
+                  className="mr-5 h-4 ml-3 inline-block"
+                  alt="search-icon"
+                  src="https://cdn-icons-png.flaticon.com/512/482/482631.png"
+                />
+                <span>{suggestions}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <div className="flex items-center">
+        <div className="flex h-8 w-8 overflow-hidden rounded-full md:ml-4">
+          <FaCircleUser className="text-3xl" />
+          {/* <CiLight /> */}
         </div>
       </div>
     </div>

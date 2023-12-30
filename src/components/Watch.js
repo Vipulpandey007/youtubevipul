@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeMenu } from "../utils/sideNavSlice";
+import ReactPlayer from "react-player/youtube";
 import { Link, useSearchParams } from "react-router-dom";
 import {
   YOUTUBE_VIDEO_WATCH_API,
@@ -47,121 +48,106 @@ const Watch = () => {
 
   return (
     <div
-      className={`${
-        !isMenuOpen ? "px-10 " : "px-3 backdrop-blur-sm bg-white"
-      } col-span-10 pt-6 flex w-full mt-[40px] `}
+      className="px-3 backdrop-blur-sm bg-white
+      flex justify-center flex-row h-[calc(100%-56px)] bg-white"
     >
-      <div className="flex-grow-6">
-        <div className="px-10 py-10">
-          <iframe
-            width="1050"
-            height="500"
-            src={"https://www.youtube.com/embed/" + searchParams.get("v")}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
-          <div className="p-2 m-2">
-            <div>
-              <div className="font-medium text-[18px]">
-                {Wvideo?.snippet?.title}
-              </div>
-              <div className="mt-2 flex justify-between">
-                <div className="flex">
-                  <div className="flex">
-                    <img
-                      className="rounded-full w-10 h-10"
-                      alt="thumbnail"
-                      src={Wvideo?.snippet?.thumbnails?.default?.url}
-                    />
-                    <div className="flex flex-col justify-center ml-2">
-                      <div className="font-bold text-[16px]">
-                        {Wvideo?.snippet?.channelTitle}
-                      </div>
-                      <div className="text-gray-500 text-[12px]">
-                        {Wvideo?.statistics?.viewCount} Subscriber
-                      </div>
-                    </div>
+      <div className="w-full  flex flex-col lg:flex-row">
+        <div className="flex flex-col lg:w-[calc(100%-350px)] xl:w-[calc(100%-400px)] px-4 py-3 lg:py-6">
+          <div className="h-[200px] md:h-[400px] lg:h-[400px] xl:h-[500px] ml-[-16px] lg:ml-0 mr-[-16px] lg:mr-0">
+            <ReactPlayer
+              url={"https://www.youtube.com/embed/" + searchParams.get("v")}
+              controls
+              width="1050px"
+              height="500px"
+              style={{ backgroundColor: "#00000" }}
+              playing={true}
+            />
+          </div>
+
+          <div className="text-black font-bold text-sm md:text-xl mt-4 line-clamp-2">
+            {Wvideo?.snippet?.title}
+          </div>
+          <div className="mt-2 flex justify-between">
+            <div className="flex">
+              <div className="flex">
+                <img
+                  className="rounded-full w-10 h-10"
+                  alt="thumbnail"
+                  src={Wvideo?.snippet?.thumbnails?.default?.url}
+                />
+                <div className="flex flex-col justify-center ml-2">
+                  <div className="font-bold text-[16px]">
+                    {Wvideo?.snippet?.channelTitle}
                   </div>
-                  <button className="bg-black rounded-full px-4 ml-2 text-white hover:bg-white hover:text-black hover:border border-black">
-                    Subscribe
-                  </button>
-                </div>
-                <div className="flex">
-                  <button className="bg-gray-100 rounded-l-full px-4 hover:bg-gray-200">
-                    <img
-                      alt="likeBtn"
-                      className="inline-block"
-                      src={likeIcon}
-                    />{" "}
-                    5K
-                  </button>
-                  <button className="bg-gray-100 rounded-r-full px-4 border-l-2 border-gray-300 hover:bg-gray-200">
-                    <img
-                      alt="dislikeBtn"
-                      className="inline-block"
-                      src={disLikeIcon}
-                    />
-                  </button>
-                  <button className="bg-gray-100 rounded-full px-4 ml-2 hover:bg-gray-200">
-                    <img
-                      alt="shareBtn"
-                      className="inline-block"
-                      src={shareIcon}
-                    />{" "}
-                    Share
-                  </button>
-                  <button className="bg-gray-100 rounded-full px-4 ml-2 hover:bg-gray-200">
-                    <img
-                      alt="downloadBtn"
-                      className="inline-block"
-                      src={downloadIcon}
-                    />{" "}
-                    Download
-                  </button>
-                  <button className="bg-gray-100 rounded-full w-10 h-10 ml-2 hover:bg-gray-200">
-                    <img
-                      alt="moreBtn"
-                      className="inline-block"
-                      src={moreIcon}
-                    />
-                  </button>
+                  <div className="text-gray-500 text-[12px]">
+                    {Wvideo?.statistics?.viewCount} Subscriber
+                  </div>
                 </div>
               </div>
+              <button className="bg-black rounded-full px-4 ml-2 text-white hover:bg-white hover:text-black hover:border border-black">
+                Subscribe
+              </button>
+            </div>
+            <div className="flex">
+              <button className="bg-gray-100 rounded-l-full px-4 hover:bg-gray-200">
+                <img alt="likeBtn" className="inline-block" src={likeIcon} /> 5K
+              </button>
+              <button className="bg-gray-100 rounded-r-full px-4 border-l-2 border-gray-300 hover:bg-gray-200">
+                <img
+                  alt="dislikeBtn"
+                  className="inline-block"
+                  src={disLikeIcon}
+                />
+              </button>
+              <button className="bg-gray-100 rounded-full px-4 ml-2 hover:bg-gray-200">
+                <img alt="shareBtn" className="inline-block" src={shareIcon} />{" "}
+                Share
+              </button>
+              <button className="bg-gray-100 rounded-full px-4 ml-2 hover:bg-gray-200">
+                <img
+                  alt="downloadBtn"
+                  className="inline-block"
+                  src={downloadIcon}
+                />{" "}
+                Download
+              </button>
+              <button className="bg-gray-100 rounded-full w-10 h-10 ml-2 hover:bg-gray-200">
+                <img alt="moreBtn" className="inline-block" src={moreIcon} />
+              </button>
             </div>
           </div>
+
           <CommentContainer />
         </div>
-      </div>
 
-      <div className="flex-grow-3">
-        {relatedvideo?.map((video) => (
-          <Link
-            key={video?.id}
-            to={"/watch?v=" + video.id}
-            onClick={() => window.scroll(0, 0)}
-          >
-            <div className="px-3 m-2 mt-[20px] flex">
-              <img
-                className="rounded-xl w-[168px] h-[94px] "
-                alt="thumbnail"
-                src={video?.snippet?.thumbnails?.medium?.url}
-              />
-              <ul className="flex flex-col justify-start ml-2 w-60">
-                <li className="font-medium py-2 text-[14px] line-clamp-2 max-h-[50px] leading-5">
-                  {video?.snippet?.title}
-                </li>
-                <li className="text-gray-500 text-[12px]">
-                  {video?.snippet?.channelTitle}
-                </li>
-                <li className="text-gray-500 text-[12px]">
-                  {video.statistics.viewCount} Views
-                </li>
-              </ul>
-            </div>
-          </Link>
-        ))}
+        <div className="flex flex-col py-6 px-4 lg:w-[350px] xl:w-[400px]">
+          {relatedvideo?.map((video) => (
+            <Link
+              key={video?.id}
+              to={"/watch?v=" + video.id}
+              onClick={() => window.scroll(0, 0)}
+            >
+              <div className="px-3 m-2 mt-[20px] flex">
+                <img
+                  className="rounded-xl w-[168px] h-[94px] "
+                  alt="thumbnail"
+                  src={video?.snippet?.thumbnails?.medium?.url}
+                />
+                <ul className="flex flex-col justify-start ml-2 w-60">
+                  <li className="font-medium py-2 text-[14px] line-clamp-2 max-h-[50px] leading-5">
+                    {video?.snippet?.title}
+                  </li>
+                  <li className="text-gray-500 text-[12px]">
+                    {video?.snippet?.channelTitle}
+                  </li>
+                  <li className="text-gray-500 text-[12px]">
+                    {video.statistics.viewCount} Views
+                  </li>
+                </ul>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

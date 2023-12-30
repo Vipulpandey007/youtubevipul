@@ -16,8 +16,8 @@ const list = [
 
 const ButtonList = () => {
   return (
-    <div className="flex  ml-[260px] z-40 bg-white pb-2">
-      <div className="max-w-[86%] overflow-x-hidden flex mx-12">
+    <div className="hidden md:block flex  sm:ml-[260px] z-40 bg-white pb-2">
+      <div className="sm:max-w-[86%] overflow-x-hidden flex flex-col sm:flex-row mx-12">
         {list.map((names) => (
           <Link to="live" key={names}>
             <Button name={names}></Button>

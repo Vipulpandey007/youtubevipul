@@ -1,48 +1,71 @@
 import { Provider } from "react-redux";
 import "./App.css";
-import Body from "./components/Body";
 import Head from "./components/Head";
 import appStore from "./utils/appStore";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import MainContainer from "./components/MainContainer";
-import Watch from "./components/Watch";
+import { createHashRouter } from "react-router-dom";
 import Footer from "./components/Footer";
-import LiveVideos from "./components/LiveVideos";
-import SearchResult from "./components/SearchResult";
+import { Suspense, lazy, useEffect } from "react";
+import Shimmer from "./components/Shimmer";
 
+const MainContainer = lazy(() => import("./components/MainContainer"));
+const Watch = lazy(() => import("./components/Watch"));
+const LiveVideos = lazy(() => import("./components/LiveVideos"));
+const SearchResult = lazy(() => import("./components/SearchResult"));
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const Body = lazy(() => import("./components/Body"));
   return (
     <Provider store={appStore}>
-      <div>
+      <div className="flex flex-col h-full">
         <Head />
-        <Body />
-
+        <Suspense fallback={<Shimmer />}>
+          <Body />
+        </Suspense>
         <Footer />
       </div>
     </Provider>
   );
 }
 
-export const appRouter = createBrowserRouter([
+export const appRouter = createHashRouter([
   {
     path: "/",
     element: <App />,
     children: [
       {
         path: "/",
-        element: <MainContainer />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <MainContainer />
+          </Suspense>
+        ),
       },
       {
         path: "watch",
-        element: <Watch />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Watch />
+          </Suspense>
+        ),
       },
       {
         path: "live",
-        element: <LiveVideos />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <LiveVideos />
+          </Suspense>
+        ),
       },
       {
         path: "results",
-        element: <SearchResult />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <SearchResult />
+          </Suspense>
+        ),
       },
     ],
   },
