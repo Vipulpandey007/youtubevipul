@@ -1,8 +1,16 @@
 {
   "files": {
-    "main.css": "/youtubevipul/static/css/main.373fdc46.css",
-    "main.js": "/youtubevipul/static/js/main.b896682c.js",
+    "main.css": "/youtubevipul/static/css/main.6a4861fb.css",
+    "main.js": "/youtubevipul/static/js/main.a0945229.js",
+    "static/js/888.dc80e1f1.chunk.js": "/youtubevipul/static/js/888.dc80e1f1.chunk.js",
+    "static/js/689.cdef5cb6.chunk.js": "/youtubevipul/static/js/689.cdef5cb6.chunk.js",
+    "static/js/470.7508db64.chunk.js": "/youtubevipul/static/js/470.7508db64.chunk.js",
+    "static/js/334.a8e2804f.chunk.js": "/youtubevipul/static/js/334.a8e2804f.chunk.js",
+    "static/js/451.5ab39c9f.chunk.js": "/youtubevipul/static/js/451.5ab39c9f.chunk.js",
     "static/js/787.53711055.chunk.js": "/youtubevipul/static/js/787.53711055.chunk.js",
+    "reactPlayerPreview.js": "/youtubevipul/static/js/reactPlayerPreview.6967d4a1.chunk.js",
+    "static/js/134.937572a6.chunk.js": "/youtubevipul/static/js/134.937572a6.chunk.js",
+    "static/js/895.7f376f9a.chunk.js": "/youtubevipul/static/js/895.7f376f9a.chunk.js",
     "static/media/vipultube.png": "/youtubevipul/static/media/vipultube.532d12b6036908eea3db.png",
     "static/media/like.svg": "/youtubevipul/static/media/like.df7eb0d6de72a597243fd57fe3daa03f.svg",
     "index.html": "/youtubevipul/index.html",
@@ -10,12 +18,20 @@
     "static/media/more.svg": "/youtubevipul/static/media/more.6225df4e62582ee0b61d3af2be7315ae.svg",
     "static/media/share.svg": "/youtubevipul/static/media/share.fbc3c580dc76e58d1b78c340212458d1.svg",
     "static/media/download.svg": "/youtubevipul/static/media/download.3bc11833209a64fcf0de61831a1f63d9.svg",
-    "main.373fdc46.css.map": "/youtubevipul/static/css/main.373fdc46.css.map",
-    "main.b896682c.js.map": "/youtubevipul/static/js/main.b896682c.js.map",
-    "787.53711055.chunk.js.map": "/youtubevipul/static/js/787.53711055.chunk.js.map"
+    "main.6a4861fb.css.map": "/youtubevipul/static/css/main.6a4861fb.css.map",
+    "main.a0945229.js.map": "/youtubevipul/static/js/main.a0945229.js.map",
+    "888.dc80e1f1.chunk.js.map": "/youtubevipul/static/js/888.dc80e1f1.chunk.js.map",
+    "689.cdef5cb6.chunk.js.map": "/youtubevipul/static/js/689.cdef5cb6.chunk.js.map",
+    "470.7508db64.chunk.js.map": "/youtubevipul/static/js/470.7508db64.chunk.js.map",
+    "334.a8e2804f.chunk.js.map": "/youtubevipul/static/js/334.a8e2804f.chunk.js.map",
+    "451.5ab39c9f.chunk.js.map": "/youtubevipul/static/js/451.5ab39c9f.chunk.js.map",
+    "787.53711055.chunk.js.map": "/youtubevipul/static/js/787.53711055.chunk.js.map",
+    "reactPlayerPreview.6967d4a1.chunk.js.map": "/youtubevipul/static/js/reactPlayerPreview.6967d4a1.chunk.js.map",
+    "134.937572a6.chunk.js.map": "/youtubevipul/static/js/134.937572a6.chunk.js.map",
+    "895.7f376f9a.chunk.js.map": "/youtubevipul/static/js/895.7f376f9a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.373fdc46.css",
-    "static/js/main.b896682c.js"
+    "static/css/main.6a4861fb.css",
+    "static/js/main.a0945229.js"
   ]
 }
