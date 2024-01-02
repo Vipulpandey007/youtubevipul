@@ -18,7 +18,6 @@ const Watch = () => {
   const [searchParams] = useSearchParams();
   const [Wvideo, setWVideo] = useState([]);
   const [relatedvideo, setrelatedvideo] = useState([]);
-  const isMenuOpen = useSelector((store) => store.nav.isMenuOpen);
 
   let videoId = searchParams.get("v");
   const dispatch = useDispatch();
@@ -47,18 +46,15 @@ const Watch = () => {
   };
 
   return (
-    <div
-      className="px-3 backdrop-blur-sm bg-white
-      flex justify-center flex-row h-[calc(100%-56px)] bg-white"
-    >
-      <div className="w-full  flex flex-col lg:flex-row">
-        <div className="flex flex-col lg:w-[calc(100%-350px)] xl:w-[calc(100%-400px)] px-4 py-3 lg:py-6">
-          <div className="h-[200px] md:h-[400px] lg:h-[400px] xl:h-[500px] ml-[-16px] lg:ml-0 mr-[-16px] lg:mr-0">
+    <div className="flex justify-center flex-row h-[calc(100%-56px)] bg-white">
+      <div className="w-full max-w-[1280px] flex flex-col lg:flex-row">
+        <div className="flex flex-col lg:w-[calc(100%-350px)] xl:w-[calc(100%-400px)] px-4 py-3 lg:py-6 overflow-y-auto">
+          <div className="h-[200px] md:h-[400px] lg:h-[400px] xl:h-[550px] ml-[-16px] lg:ml-0 mr-[-16px] lg:mr-0">
             <ReactPlayer
               url={"https://www.youtube.com/embed/" + searchParams.get("v")}
               controls
-              width="1050px"
-              height="500px"
+              width="100%"
+              height="100%"
               style={{ backgroundColor: "#00000" }}
               playing={true}
             />
@@ -67,19 +63,21 @@ const Watch = () => {
           <div className="text-black font-bold text-sm md:text-xl mt-4 line-clamp-2">
             {Wvideo?.snippet?.title}
           </div>
-          <div className="mt-2 flex justify-between">
+          <div className="flex justify-between flex-col md:flex-row mt-4">
             <div className="flex">
-              <div className="flex">
-                <img
-                  className="rounded-full w-10 h-10"
-                  alt="thumbnail"
-                  src={Wvideo?.snippet?.thumbnails?.default?.url}
-                />
-                <div className="flex flex-col justify-center ml-2">
-                  <div className="font-bold text-[16px]">
+              <div className="flex items-start">
+                <div className="flex h-11 w-11 rounded-full overflow-hidden">
+                  <img
+                    className="h-full w-full object-cover"
+                    alt="thumbnail"
+                    src={Wvideo?.snippet?.thumbnails?.default?.url}
+                  />
+                </div>
+                <div className="flex flex-col ml-3">
+                  <div className="text-black text-md font-semibold flex items-center">
                     {Wvideo?.snippet?.channelTitle}
                   </div>
-                  <div className="text-gray-500 text-[12px]">
+                  <div className="text-black/[0.7] text-sm">
                     {Wvideo?.statistics?.viewCount} Subscriber
                   </div>
                 </div>
@@ -88,7 +86,7 @@ const Watch = () => {
                 Subscribe
               </button>
             </div>
-            <div className="flex">
+            <div className="flex text-black mt-4 md:mt-0">
               <button className="bg-gray-100 rounded-l-full px-4 hover:bg-gray-200">
                 <img alt="likeBtn" className="inline-block" src={likeIcon} /> 5K
               </button>
@@ -97,7 +95,8 @@ const Watch = () => {
                   alt="dislikeBtn"
                   className="inline-block"
                   src={disLikeIcon}
-                />
+                />{" "}
+                50
               </button>
               <button className="bg-gray-100 rounded-full px-4 ml-2 hover:bg-gray-200">
                 <img alt="shareBtn" className="inline-block" src={shareIcon} />{" "}
@@ -120,30 +119,35 @@ const Watch = () => {
           <CommentContainer />
         </div>
 
-        <div className="flex flex-col py-6 px-4 lg:w-[350px] xl:w-[400px]">
+        <div className="flex flex-col py-6 px-4 overflow-y-auto lg:w-[350px] xl:w-[400px]">
           {relatedvideo?.map((video) => (
             <Link
               key={video?.id}
               to={"/watch?v=" + video.id}
               onClick={() => window.scroll(0, 0)}
             >
-              <div className="px-3 m-2 mt-[20px] flex">
-                <img
-                  className="rounded-xl w-[168px] h-[94px] "
-                  alt="thumbnail"
-                  src={video?.snippet?.thumbnails?.medium?.url}
-                />
-                <ul className="flex flex-col justify-start ml-2 w-60">
-                  <li className="font-medium py-2 text-[14px] line-clamp-2 max-h-[50px] leading-5">
-                    {video?.snippet?.title}
-                  </li>
-                  <li className="text-gray-500 text-[12px]">
-                    {video?.snippet?.channelTitle}
-                  </li>
-                  <li className="text-gray-500 text-[12px]">
-                    {video.statistics.viewCount} Views
-                  </li>
-                </ul>
+              <div className="flex mb-3">
+                <div className="relative h-24 lg:h-20 xl:h-24 w-40 min-w-[168px] lg:w-32 lg:min-w-[128px] xl:w-40 xl:min-w-[168px] rounded-xl bg-slate-800 overflow-hidden">
+                  <img
+                    className="h-full w-full object-cover"
+                    alt="thumbnail"
+                    src={video?.snippet?.thumbnails?.medium?.url}
+                  />
+                </div>
+
+                <div className="flex flex-col ml-3 overflow-hidden">
+                  <ul className="">
+                    <li className="text-sm lg:text-xs xl:text-sm font-bold line-clamp-2 text-black">
+                      {video?.snippet?.title}
+                    </li>
+                    <li className="text-[12px] lg:text-[10px] xl:text-[12px] font-semibold mt-2 text-black/[0.7] flex items-center">
+                      {video?.snippet?.channelTitle}
+                    </li>
+                    <li className="flex text-[12px] lg:text-[10px] xl:text-[12px] font-semibold text-black/[0.7] truncate overflow-hidden">
+                      {video.statistics.viewCount} Views
+                    </li>
+                  </ul>
+                </div>
               </div>
             </Link>
           ))}
