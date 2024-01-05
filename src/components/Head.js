@@ -7,6 +7,7 @@ import tubeicon from "../images/vipultube.png";
 import { YOUTUBE_SEARCH } from "../utils/Constants";
 import { cacheResults } from "../utils/SearchSlice";
 import { useNavigate } from "react-router-dom";
+import smicon from "../images/youtubesm.png";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -60,16 +61,24 @@ const Head = () => {
   return (
     <div className="sticky top-0 z-10 flex flex-row items-center justify-between h-14 px-4 md:px-5 bg-white">
       <div className="flex h-5 items-center">
-        <div className="flex cursor-pointer items-center justify-center h-10 w-10 rounded-full hover:bg-[#303030]/[0.6] md:hidden">
+        <div className="flex cursor-pointer items-center justify-center h-10 w-10 rounded-full md:hidden">
           <GiHamburgerMenu
             className="h-6 mt-2 ml-2 text-2xl"
             onClick={() => toggleMenuHandler()}
           />
         </div>
-        <a href="/" className="flex h-5 items-center">
+        <a
+          href="https://vipulpandey007.github.io/youtubevipul/"
+          className="flex h-5 items-center"
+        >
           <img
-            className="w-20 sm:w-24 md:ml-2 cursor-pointer"
+            className="hidden sm:block w-20  md:ml-2 cursor-pointer"
             src={tubeicon}
+            alt="youtubelogo"
+          />
+          <img
+            className="sm:hidden w-14 md:ml-2 cursor-pointer"
+            src={smicon}
             alt="youtubelogo"
           />
         </a>
