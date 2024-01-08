@@ -4,14 +4,16 @@ import Head from "./components/Head";
 import appStore from "./utils/appStore";
 import { createHashRouter } from "react-router-dom";
 import Footer from "./components/Footer";
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import Shimmer from "./components/Shimmer";
+import LoadingBar from "react-top-loading-bar";
 
 const MainContainer = lazy(() => import("./components/MainContainer"));
 const Watch = lazy(() => import("./components/Watch"));
 const LiveVideos = lazy(() => import("./components/LiveVideos"));
 const SearchResult = lazy(() => import("./components/SearchResult"));
 function App() {
+  const [progress, setProgress] = useState(0);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -20,9 +22,14 @@ function App() {
   return (
     <Provider store={appStore}>
       <div className="flex flex-col h-full">
+        <LoadingBar
+          color="#f11946"
+          progress={progress}
+          onLoaderFinished={() => setProgress(0)}
+        />
         <Head />
         <Suspense fallback={<Shimmer />}>
-          <Body />
+          <Body setProgress={setProgress} />
         </Suspense>
         <Footer />
       </div>
