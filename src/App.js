@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import { Suspense, lazy, useEffect, useState } from "react";
 import Shimmer from "./components/Shimmer";
 import LoadingBar from "react-top-loading-bar";
+import Breadcrumbs from "./components/Breadcrumbs";
 
 const MainContainer = lazy(() => import("./components/MainContainer"));
 const Watch = lazy(() => import("./components/Watch"));
@@ -28,6 +29,7 @@ function App() {
           onLoaderFinished={() => setProgress(0)}
         />
         <Head />
+        <Breadcrumbs />
         <Suspense fallback={<Shimmer />}>
           <Body setProgress={setProgress} />
         </Suspense>

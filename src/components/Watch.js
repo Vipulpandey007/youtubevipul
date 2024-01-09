@@ -21,17 +21,13 @@ const Watch = () => {
 
   let videoId = searchParams.get("v");
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(closeMenu());
-  }, []);
 
   useEffect(() => {
+    dispatch(closeMenu());
     window.scrollTo(0, 0);
-  }, []);
-  useEffect(() => {
     getVideoDetails();
     getRelatedVideo();
-  }, [videoId]);
+  }, []);
 
   const getVideoDetails = async () => {
     const data = await fetch(YOUTUBE_VIDEO_WATCH_API + videoId);

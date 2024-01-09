@@ -1,15 +1,13 @@
 import React, { useEffect } from "react";
 import Sidebar from "./Sidebar";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 const Body = ({ setProgress }) => {
-  const param = useParams();
+  const { pathname } = useLocation();
   useEffect(() => {
     setProgress(30);
-    setTimeout(() => {
-      setProgress(100);
-    }, 1500);
-  }, [param]);
+    setProgress(100);
+  }, [pathname]);
   return (
     <div className="flex flex-row h-[calc(100%-56px)]">
       <Sidebar />
