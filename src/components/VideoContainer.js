@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { YOUTUBE_VIDEOAPI } from "../utils/Constants";
 import VideoCards from "./VideoCards";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import Shimmer from "./Shimmer";
 
 const VideoContainer = () => {
@@ -17,7 +16,6 @@ const VideoContainer = () => {
     const json = await data.json();
     setVideos(json.items);
   };
-  console.log(videos[1]);
   if (!videos.length) return <Shimmer />;
   return (
     <div

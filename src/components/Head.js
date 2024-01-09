@@ -72,7 +72,7 @@ const Head = () => {
           className="flex h-5 items-center"
         >
           <img
-            className="hidden sm:block w-20  md:ml-2 cursor-pointer"
+            className="hidden sm:block w-20 md:w-28 md:ml-2 cursor-pointer"
             src={tubeicon}
             alt="youtubelogo"
           />
