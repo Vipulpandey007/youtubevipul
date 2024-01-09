@@ -5,9 +5,10 @@
 Large Scale fast loading video streaming Web app Highly Optimised. 
 
 Welcome to VipulTube, a video streaming app built using Reactjs, Tailwind CSS and YouTube's API. With VipulTube, you can watch your favorite videos in a user-friendly interface. VipulTube offers seamless video playback. 
+```
 
 # Features:
-
+```bash
 Watch videos Just Like YouTube.
 Search for videos what you like and what you wish to watch
 Live chat features
