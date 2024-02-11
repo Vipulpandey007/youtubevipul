@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/youtubevipul/static/css/main.a425c7ac.css",
-    "main.js": "/youtubevipul/static/js/main.523eac9f.js",
+    "main.css": "/youtubevipul/static/css/main.f76df9a7.css",
+    "main.js": "/youtubevipul/static/js/main.04fed7dd.js",
     "static/js/888.e50dd28f.chunk.js": "/youtubevipul/static/js/888.e50dd28f.chunk.js",
     "static/js/689.dc970ec1.chunk.js": "/youtubevipul/static/js/689.dc970ec1.chunk.js",
     "static/js/470.7508db64.chunk.js": "/youtubevipul/static/js/470.7508db64.chunk.js",
     "static/js/334.c4540200.chunk.js": "/youtubevipul/static/js/334.c4540200.chunk.js",
-    "static/js/451.587eb8e8.chunk.js": "/youtubevipul/static/js/451.587eb8e8.chunk.js",
+    "static/js/451.5cc95b15.chunk.js": "/youtubevipul/static/js/451.5cc95b15.chunk.js",
     "static/js/787.53711055.chunk.js": "/youtubevipul/static/js/787.53711055.chunk.js",
     "reactPlayerPreview.js": "/youtubevipul/static/js/reactPlayerPreview.6967d4a1.chunk.js",
     "static/js/134.937572a6.chunk.js": "/youtubevipul/static/js/134.937572a6.chunk.js",
@@ -19,20 +19,20 @@
     "static/media/more.svg": "/youtubevipul/static/media/more.6225df4e62582ee0b61d3af2be7315ae.svg",
     "static/media/share.svg": "/youtubevipul/static/media/share.fbc3c580dc76e58d1b78c340212458d1.svg",
     "static/media/download.svg": "/youtubevipul/static/media/download.3bc11833209a64fcf0de61831a1f63d9.svg",
-    "main.a425c7ac.css.map": "/youtubevipul/static/css/main.a425c7ac.css.map",
-    "main.523eac9f.js.map": "/youtubevipul/static/js/main.523eac9f.js.map",
+    "main.f76df9a7.css.map": "/youtubevipul/static/css/main.f76df9a7.css.map",
+    "main.04fed7dd.js.map": "/youtubevipul/static/js/main.04fed7dd.js.map",
     "888.e50dd28f.chunk.js.map": "/youtubevipul/static/js/888.e50dd28f.chunk.js.map",
     "689.dc970ec1.chunk.js.map": "/youtubevipul/static/js/689.dc970ec1.chunk.js.map",
     "470.7508db64.chunk.js.map": "/youtubevipul/static/js/470.7508db64.chunk.js.map",
     "334.c4540200.chunk.js.map": "/youtubevipul/static/js/334.c4540200.chunk.js.map",
-    "451.587eb8e8.chunk.js.map": "/youtubevipul/static/js/451.587eb8e8.chunk.js.map",
+    "451.5cc95b15.chunk.js.map": "/youtubevipul/static/js/451.5cc95b15.chunk.js.map",
     "787.53711055.chunk.js.map": "/youtubevipul/static/js/787.53711055.chunk.js.map",
     "reactPlayerPreview.6967d4a1.chunk.js.map": "/youtubevipul/static/js/reactPlayerPreview.6967d4a1.chunk.js.map",
     "134.937572a6.chunk.js.map": "/youtubevipul/static/js/134.937572a6.chunk.js.map",
     "895.7f376f9a.chunk.js.map": "/youtubevipul/static/js/895.7f376f9a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a425c7ac.css",
-    "static/js/main.523eac9f.js"
+    "static/css/main.f76df9a7.css",
+    "static/js/main.04fed7dd.js"
   ]
 }
