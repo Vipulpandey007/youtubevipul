@@ -100,6 +100,14 @@ const Head = () => {
               setShowSuggestion(false);
             }}
           />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery("")}
+              className="hover:bg-gray-200 hover:rounded-full w-9 h-9"
+            >
+              X
+            </button>
+          )}
         </div>
         <button className="w-[40px] md:w-[60px] h-8 md:h-10 flex items-center justify-center border border-l-0 border-[#303030] rounded-r-3xl bg-gray-100">
           <img
@@ -109,14 +117,6 @@ const Head = () => {
             src="https://cdn-icons-png.flaticon.com/512/482/482631.png"
           />
         </button>
-        {searchQuery && (
-          <button
-            onClick={() => setSearchQuery("")}
-            className="absolute hover:bg-gray-200 hover:rounded-full w-9 h-9 right-[5.0rem] top-[2px]"
-          >
-            X
-          </button>
-        )}
       </div>
       {showSuggestion && suggestion?.length > 0 && (
         <div className="absolute bg-white w-[560px] max-h-[400px] shadow-lg border rounded-lg overflow-y-auto left-3 top-10 z-50 text-left">

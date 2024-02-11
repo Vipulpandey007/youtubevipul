@@ -19,7 +19,7 @@ const Sidebar = () => {
   //Early return pattern
   if (!isMenuOpen) return null;
   return (
-    <div className=" md:block p-5 max-h-screen hover:overflow-y-scroll overflow-hidden overscroll-contain fixed top-[64px] z-50 bg-white text-left w-[280px]">
+    <div className=" md:block  p-5 max-h-screen hover:overflow-y-scroll overflow-hidden overscroll-contain fixed top-[50px] z-50 bg-white text-left w-[280px]">
       <ul>
         <Link to="/">
           <li className="my-1 p-1 py-2 hover:bg-gray-100 cursor-pointer rounded-lg">
